@@ -1,0 +1,2 @@
+django==1.5.2
+Unipath==0.2.1

@@ -1,0 +1,60 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <!-- [if it IE]> <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <![endif]-->
+    <title>
+        {% block title %}{% endblock title %} | Django + Docker Example
+    </title>
+
+    {% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap-custom.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}"> {% endblock stylesheets %}
+    {% block page_styles %}{% endblock page_styles %}
+    {% block js %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+    <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+    {% endblock js %} {% block page_js %}{% endblock page_js %}
+</head>
+<body>
+
+<!-- navigation -->
+<div class="navbar navbar-static-top">
+    <div class="navbar-inner navbar-fixed-top ">
+        <div class="container" >
+            <div class="brand logo"><img src='{% static "img/docker-top-logo.png" %}' /> </div>
+            <ul class="nav pull-right">
+                <li class="active"><a href="{% url 'polls:index' %}">Polls</a></li>
+                <li><a href="http://www.docker.io/">Docker project</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% block breadcrumbs %}
+<ul class="breadcrumb">
+  <li><a href="{% url 'home' %}">Home</a> <span class="divider">/</span></li>
+  <li><a href="{% url 'polls:index' %}">Polls</a> <span class="divider">/</span></li>
+  {% block breadcrumb-page %}{% endblock breadcrumb-page %}
+</ul>
+{% endblock breadcrumbs %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="span9 offset2 box">
+        {% block content %}
+            <h1>Example App</h1>
+        {% endblock content %}
+
+        </div>
+    </div>
+</div>
+{% endblock body %}
+
+</body>
+</html>
