@@ -1,9 +1,8 @@
-import datetime
-
-from django.utils import timezone
+from django.core.urlresolvers import reverse
 from django.test import TestCase
-
+from django.utils import timezone
 from polls.models import Poll
+import datetime
 
 def create_poll(question, days):
     """
