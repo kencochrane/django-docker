@@ -17,6 +17,10 @@ With a tag for easier reuse
 Running the container
 
     $ sudo docker run -d -p :8000 <your username>/django-docker
+    
+Get your container's IP Address:
 
-Now go to `<your ip>:8000` in your browser
+    sudo docker inspect <container_id> | grep IPAddress | cut -d '"' -f 4
+
+Now go to `<your container's ip>:8000` in your browser
 
